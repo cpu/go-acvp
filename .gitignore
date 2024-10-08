@@ -23,3 +23,21 @@ go.work.sum
 
 # env file
 .env
+
+# IDE
+/.idea
+
+# Secrets
+config.json
+cert.pem
+key.pem
+
+# acvptool
+log
+
+# Uncompressed files
+SHA2-224
+SHA2-256
+SHA2-384
+SHA2-512
+SHA2-512-256
