@@ -14,6 +14,7 @@ var DefaultAlgs = []string{
 	"SHA2-256",
 	"SHA2-384",
 	"SHA2-512",
+	"SHA2-512/224",
 	"SHA2-512/256",
 
 	"SHA3-224",
@@ -25,6 +26,7 @@ var DefaultAlgs = []string{
 	"HMAC-SHA2-256",
 	"HMAC-SHA2-384",
 	"HMAC-SHA2-512",
+	"HMAC-SHA2-512/224",
 	"HMAC-SHA2-512/256",
 
 	"HMAC-SHA3-224",
