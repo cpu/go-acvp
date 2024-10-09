@@ -1,0 +1,24 @@
+name: Go
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron:  '15 */12 * * *'
+jobs:
+
+  build:
+    name: Build and Unit Test
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Format
+        run: go fmt ./...
+
+      - name: Build
+        run: go build -v ./...
