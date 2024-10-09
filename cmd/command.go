@@ -15,7 +15,22 @@ var DefaultAlgs = []string{
 	"SHA2-384",
 	"SHA2-512",
 	"SHA2-512/256",
-	// TODO(XXX): complete list
+
+	"SHA3-224",
+	"SHA3-256",
+	"SHA3-384",
+	"SHA3-512",
+
+	"HMAC-SHA2-224",
+	"HMAC-SHA2-256",
+	"HMAC-SHA2-384",
+	"HMAC-SHA2-512",
+	"HMAC-SHA2-512/256",
+
+	"HMAC-SHA3-224",
+	"HMAC-SHA3-256",
+	"HMAC-SHA3-384",
+	"HMAC-SHA3-512",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
