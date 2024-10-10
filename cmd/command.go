@@ -33,6 +33,8 @@ var DefaultAlgs = []string{
 	"HMAC-SHA3-256",
 	"HMAC-SHA3-384",
 	"HMAC-SHA3-512",
+
+	"PBKDF",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
