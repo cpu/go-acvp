@@ -37,6 +37,7 @@ var DefaultAlgs = []string{
 	"PBKDF",
 
 	"ECDSA",
+	"EDDSA",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
