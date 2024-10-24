@@ -23,6 +23,7 @@ var DefaultAlgs = []string{
 	"SHA3-512",
 
 	"SHAKE-128",
+	"SHAKE-256",
 
 	"HMAC-SHA2-224",
 	"HMAC-SHA2-256",
