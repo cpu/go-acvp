@@ -40,6 +40,7 @@ var DefaultAlgs = []string{
 	"PBKDF",
 
 	"ECDSA",
+	"DetECDSA",
 	"EDDSA",
 }
 
