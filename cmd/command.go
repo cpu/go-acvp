@@ -42,6 +42,8 @@ var DefaultAlgs = []string{
 	"ECDSA",
 	"DetECDSA",
 	"EDDSA",
+
+	"CMAC-AES",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
