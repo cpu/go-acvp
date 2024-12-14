@@ -48,6 +48,7 @@ var DefaultAlgs = []string{
 	"KDA",
 
 	"TLS-v1.2",
+	"TLS-v1.3",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
