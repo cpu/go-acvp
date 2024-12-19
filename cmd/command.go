@@ -53,6 +53,8 @@ var DefaultAlgs = []string{
 	"kdf-components",
 
 	"ML-KEM",
+
+	"KAS-ECC-SSC",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
