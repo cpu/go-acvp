@@ -74,3 +74,4 @@ kdf-components
 ML-KEM
 KAS-ECC-SSC
 hmacDRBG
+ctrDRBG

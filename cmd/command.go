@@ -57,6 +57,8 @@ var DefaultAlgs = []string{
 	"KAS-ECC-SSC",
 
 	"hmacDRBG",
+
+	"ctrDRBG",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
