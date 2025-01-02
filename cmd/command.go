@@ -55,6 +55,8 @@ var DefaultAlgs = []string{
 	"ML-KEM",
 
 	"KAS-ECC-SSC",
+
+	"hmacDRBG",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
