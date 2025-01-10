@@ -59,6 +59,8 @@ var DefaultAlgs = []string{
 	"hmacDRBG",
 
 	"ctrDRBG",
+
+	"RSA",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
