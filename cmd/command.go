@@ -63,6 +63,9 @@ var DefaultAlgs = []string{
 	"RSA",
 
 	"KTS-IFC",
+
+	"cSHAKE-128",
+	"cSHAKE-256",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
