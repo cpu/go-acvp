@@ -66,6 +66,8 @@ var DefaultAlgs = []string{
 
 	"cSHAKE-128",
 	"cSHAKE-256",
+
+	"ML-DSA",
 }
 
 func RunAcvpTool(pathToTool, pathToWrapper, action, input, outputFile string, compress bool) error {
