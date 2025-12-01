@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/cpu/go-acvp/cmd"
+	"github.com/dsnet/compress/bzip2"
 )
 
 func main() {
@@ -21,8 +21,10 @@ func main() {
 
 	if *algos != "all" {
 		algorithms = strings.Split(*algos, ",")
-	} else {
-		algorithms = cmd.DefaultAlgs
+	}
+
+	if len(algorithms) == 0 {
+		log.Fatal("one or more -algorithms must be specified")
 	}
 
 	for _, alg := range algorithms {
@@ -44,7 +46,7 @@ func main() {
 			log.Fatalf("error: writing trimmed vectors for %q: %s", alg, err)
 		}
 
-		if err = cmd.Compress(trimmed, vectorFile); err != nil {
+		if err = compress(trimmed, vectorFile); err != nil {
 			log.Fatalf("error: compressing vectors for %q: %s", alg, err)
 		}
 	}
@@ -79,4 +81,28 @@ func trim(vectors []byte) ([]byte, error) {
 	}
 
 	return trimmed, nil
+}
+
+func compress(data []byte, path string) error {
+	if !strings.HasSuffix(path, ".bz2") {
+		path = path + ".bz2"
+	}
+
+	outFile, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("creating %q: %w", path, err)
+	}
+	defer func() { _ = outFile.Close() }()
+
+	bw, err := bzip2.NewWriter(outFile, nil)
+	if err != nil {
+		return fmt.Errorf("constructing bzip2 writer: %w", err)
+	}
+	defer func() { _ = bw.Close() }()
+
+	if _, err := bw.Write(data); err != nil {
+		return fmt.Errorf("compressing data: %w", err)
+	}
+
+	return nil
 }
