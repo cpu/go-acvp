@@ -2,31 +2,13 @@
 
 Go FIPS-140-3 Automated Cryptographic Validation Protocol (ACVP) test data.
 
-## Usage
+This repo holds known answer tests created from ACVP test server test vectors,
+and the validated expected results. To avoid bloat, we further trim and compress
+both the vectors and expected results.
 
-```bash
-# Make sure you've created config.json in this directory, pointing at your
-# ACVTS creds.
-
-ACVPTOOL=/tmp/boringssl/util/fipstool/acvp/acvptool/acvptool
-WRAPPER=/tmp/go/src/fips.test
-
-# Fetch full vectors for all algorithms
-go run ./cmd/fetch -tool $ACVPTOOL -wrapper $WRAPPER
-
-# Process full vectors for all algorithms, verifying solutions with the ACVTS
-go run ./cmd/process -tool $ACVPTOOL -wrapper $WRAPPER -upload
-
-# But: full vectors/solutions are too big for CI. Trim down to 1 exemplar per
-# test type per algorithm. This will generate trimmed vectors/*.bz2 for each alg.
-go run ./cmd/trim
-
-# Create expected answers by re-processing the trimmed vectors.
-# This will generate trimmed expected/*.bz2 for each alg.
-go run ./cmd/process -tool $ACVPTOOL -wrapper $WRAPPER
-
-# Commit the .bz2 files. You're done
-```
+The standard library cryptography package's unit tests can then reference this
+module to exercise the ACVP module wrapper without involving the live NIST ACVP
+demo server.
 
 # License
 
